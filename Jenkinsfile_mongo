@@ -1,6 +1,6 @@
 pipeline {
 
-  aagent {
+  agent {
     dockerfile {
       filename 'Dockerfile_mongo'
     }

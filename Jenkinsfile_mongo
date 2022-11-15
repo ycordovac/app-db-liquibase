@@ -1,7 +1,9 @@
 pipeline {
 
-  agent {
-    docker { image 'liquibase/liquibase:4.15.0' }
+  aagent {
+    dockerfile {
+      filename 'Dockerfile_mongo'
+    }
   }
   stages {
     stage('Status') {

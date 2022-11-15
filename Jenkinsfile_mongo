@@ -1,19 +1,13 @@
 pipeline {
-  agent {
-    docker { image 'liquibase/liquibase:4.15.0' }
-  }
-  environment {
-    POSTGRES_CREDENTIALS=credentials('mongo')
-  }
   stages {
     stage('Status') {
       steps {
-        sh 'liquibase status --url="jdbc:mongodb://root:root@192.168.67.8:27017/?serverSelectionTryOnce=false&serverSelectionTimeoutMS=15000&w=majority'
+        sh 'liquibase status --url="jdbc:mongodb://root:root@172.19.0.4:27017/?serverSelectionTryOnce=false&serverSelectionTimeoutMS=15000&w=majority'
       }
     }
     stage('Update') {
       steps {
-        sh 'liquibase update --url="jdbc:mongodb://root:root@192.168.67.8:27017/?serverSelectionTryOnce=false&serverSelectionTimeoutMS=15000&w=majority'
+        sh 'liquibase update --url="jdbc:mongodb://root:root@172.19.0.4:27017/?serverSelectionTryOnce=false&serverSelectionTimeoutMS=15000&w=majority'
       }
     }
   }

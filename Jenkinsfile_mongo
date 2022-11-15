@@ -1,9 +1,10 @@
 pipeline {
 
   agent {
-    dockerfile {
-      filename 'Dockerfile_mongo'
-    }
+    docker { image 'liquibase/liquibase:4.15.0' }
+  }
+  environment {
+    POSTGRES_CREDENTIALS=credentials('postgres')
   }
   stages {
     stage('Status') {

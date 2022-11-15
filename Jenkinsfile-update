@@ -3,7 +3,7 @@ pipeline {
     docker { image 'liquibase/liquibase:4.15.0' }
   }
   environment {
-    POSTGRES_CREDENTIALS=credentials('credenciales_postgres_liquidbase')
+    POSTGRES_CREDENTIALS=credentials('postgres')
   }
   stages {
     stage('Status') {
